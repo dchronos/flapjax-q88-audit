@@ -52,7 +52,7 @@
 <tr><td>Boundary proof</td><td>Block 131,181,185 = 2026-11-02T04:59:59Z (last second of 11-01 COT); block 131,373,134 = 2026-11-03T05:00:00Z (first second of 11-03 COT). The window is exact, not rounded to a nearest block.</td></tr>
 <tr><td>Method</td><td><span class="mono">eth_getLogs</span> over the full range with <span class="mono">address = token</span>, <span class="mono">topic0 = Transfer</span>, <span class="mono">topic1 = treasury</span>, in 20,000-block chunks (public nodes cap the range at 50,000). Every returned log would be a FLAPJAX transfer <em>out of</em> the treasury.</td></tr>
 <tr><td>Chunks scanned</td><td>191,948 blocks: 131,181,186 → 131,373,133. No gaps, no skipped ranges, no partial results — every chunk returned an empty array, not an error.</td></tr>
-<tr><td>Nodes used</td><td>bsc-rpc.publicnode.com, bsc.meowrpc.com, rpc.48.club, bsc.blockrazor.xyz (rotated on rate limits; identical results)</td></tr>
+<tr><td>Nodes used</td><td><span class="mono">bsc-rpc.publicnode.com</span> carried the scan. <span class="mono">bsc.meowrpc.com</span>, <span class="mono">rpc.48.club</span> and <span class="mono">bsc.blockrazor.xyz</span> were only fallbacks: some reject <span class="mono">eth_getLogs</span> or cap the block range, so they are not relied on here. The empty window was re-read on the primary node with 1,000-block chunks, all zero.</td></tr>
 </table>
 
 <h2>Transfers out of the treasury on 11-02 COT</h2>
@@ -82,6 +82,9 @@
 <tr><td>2026-11-04</td><td>131,565,092 – 131,757,034</td><td style="text-align:right">13</td><td>context — proves the query detects transfers</td></tr>
 </tbody>
 </table>
+<p class="small">
+  Positive control on the same node and the same filter: a 1,000-block slice of 11-03 COT (<span class="mono">131,526,000 – 131,526,999</span>) returns <strong>2</strong> logs. So an empty answer for 11-02 is the query finding nothing, not the query failing.
+</p>
 <p class="small">
   The 11-01..11-04 sweep was run as one continuous pass over 130,989,236 – 131,757,034 (17 transfers total) and then
   bucketed by COT day, so the zeros and the non-zeros come from one uninterrupted scan rather than four independent
