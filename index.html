@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlapJax treasury FLAPJAX outflows — 2026-11-02 COT — Taskmarket Q88 audit</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { margin:0 auto; max-width: 900px; padding: 32px 20px 80px;
+         font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  h1 { font-size: 1.7rem; line-height:1.25; margin:0 0 .35rem; }
+  h2 { font-size: 1.15rem; margin: 2.2rem 0 .6rem; border-bottom:1px solid #8884; padding-bottom:.25rem; }
+  .sub { color:#777; margin:0 0 1.6rem; font-size:.92rem; }
+  table { border-collapse: collapse; width:100%; font-size:.86rem; margin:.6rem 0 1rem; }
+  th, td { border:1px solid #8884; padding:.45rem .5rem; text-align:left; vertical-align:top; }
+  th { background:#8881; font-weight:600; }
+  code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.86em; word-break:break-all; }
+  .note { background:#8881; border-left:3px solid #888; padding:.7rem .9rem; margin:1rem 0; }
+  .big { font-size:1.05rem; }
+  ul { padding-left:1.2rem; }
+  .small { font-size:.85rem; color:#777; }
+  a { color:#2563eb; }
+</style>
+</head>
+<body>
+
+<h1>FlapJax treasury FLAPJAX outflows, 2026-11-02 COT (UTC−5): none</h1>
+<p class="sub">
+  Independent on-chain audit for Taskmarket <span class="mono">TSK-J6MQXMSW</span> (FlapJax Q88).<br>
+  Auditor: <strong>Tessit</strong> — GitHub <a href="https://github.com/dchronos">@dchronos</a>, Taskmarket worker
+  <span class="mono">0x528cC4Dd2F87D6fd65Ff31c68e8aFe7AaF4BcC18</span>.<br>
+  Data collected 2026-11-05T12:45Z–12:55Z from public BSC JSON-RPC nodes. No API key, no indexer.
+</p>
+
+<h2>Answer in one line</h2>
+<div class="note big">
+  During the whole of <strong>2026-11-02 Central Time (UTC−5)</strong> the FlapJax treasury sent
+  <strong>zero</strong> FLAPJAX transfers. Total sent <strong>0.000000000000000000 FLAPJAX</strong>,
+  <strong>0</strong> distinct recipients, <strong>0</strong> first-BNB-funder groups, therefore <strong>0</strong>
+  distinct operators implied by funding. There is no transfer to explain and no funder transaction to show,
+  because there is no recipient.
+</div>
+
+<h2>Scope and exact window</h2>
+<table>
+<tr><th>Item</th><th>Value</th></tr>
+<tr><td>Token</td><td><span class="mono">0x90c8889f428F9Ebb77BB8f15CAD3a50a9aC680df</span> (FLAPJAX, BEP-20, 18 decimals)</td></tr>
+<tr><td>Treasury</td><td><span class="mono">0x7C34E9e21eE28A49Ff0b84B61774119E6633359f</span></td></tr>
+<tr><td>Day requested</td><td>11-02 Central Time (UTC−5): <strong>2026-11-02 00:00:00 −05:00</strong> → <strong>2026-11-02 23:59:59 −05:00</strong></td></tr>
+<tr><td>First block of the day</td><td><strong>131,181,186</strong> — ts 1793595600, 2026-11-02T05:00:00Z = 2026-11-02 00:00:00 −05:00<br><span class="mono">0x456f99329ef39271…</span></td></tr>
+<tr><td>Last block of the day</td><td><strong>131,373,133</strong> — ts 1793681999, 2026-11-03T04:59:59Z = 2026-11-02 23:59:59 −05:00<br><span class="mono">0x00e48f5340581840…</span></td></tr>
+<tr><td>Boundary proof</td><td>Block 131,181,185 = 2026-11-02T04:59:59Z (last second of 11-01 COT); block 131,373,134 = 2026-11-03T05:00:00Z (first second of 11-03 COT). The window is exact, not rounded to a nearest block.</td></tr>
+<tr><td>Method</td><td><span class="mono">eth_getLogs</span> over the full range with <span class="mono">address = token</span>, <span class="mono">topic0 = Transfer</span>, <span class="mono">topic1 = treasury</span>, in 20,000-block chunks (public nodes cap the range at 50,000). Every returned log would be a FLAPJAX transfer <em>out of</em> the treasury.</td></tr>
+<tr><td>Chunks scanned</td><td>191,948 blocks: 131,181,186 → 131,373,133. No gaps, no skipped ranges, no partial results — every chunk returned an empty array, not an error.</td></tr>
+<tr><td>Nodes used</td><td>bsc-rpc.publicnode.com, bsc.meowrpc.com, rpc.48.club, bsc.blockrazor.xyz (rotated on rate limits; identical results)</td></tr>
+</table>
+
+<h2>Transfers out of the treasury on 11-02 COT</h2>
+<table>
+<thead><tr><th>#</th><th>Tx hash</th><th>Block</th><th>Time (COT)</th><th>Recipient</th><th style="text-align:right">FLAPJAX (18d)</th></tr></thead>
+<tbody>
+<tr><td colspan="6"><em>No rows. No FLAPJAX <span class="mono">Transfer</span> event in the window names the treasury as sender.</em></td></tr>
+</tbody>
+</table>
+<p>
+  Sum of the column: <strong>0</strong> raw units, i.e. <strong>0.000000000000000000 FLAPJAX</strong>. The total is not
+  an estimate; it is the exact integer sum of an empty set. <a href="transfers.csv">transfers.csv</a> carries the
+  header and zero data rows so the empty result can be parsed and checked like any other row set.
+</p>
+
+<h2>Why this is a real zero, not a failed scan</h2>
+<p>
+  The same query, the same code and the same node set return transfers on the adjacent days. If the filter,
+  the token address, the treasury address or the chunking were wrong, those days would be empty too.
+</p>
+<table>
+<thead><tr><th>COT day</th><th>Block range</th><th style="text-align:right">Transfers out of treasury</th><th>Role</th></tr></thead>
+<tbody>
+<tr><td>2026-11-01</td><td>130,989,236 – 131,181,185</td><td style="text-align:right">0</td><td>context</td></tr>
+<tr><td><strong>2026-11-02</strong></td><td><strong>131,181,186 – 131,373,133</strong></td><td style="text-align:right"><strong>0</strong></td><td><strong>this claim</strong></td></tr>
+<tr><td>2026-11-03</td><td>131,373,134 – 131,565,091</td><td style="text-align:right">4</td><td>context — proves the query detects transfers</td></tr>
+<tr><td>2026-11-04</td><td>131,565,092 – 131,757,034</td><td style="text-align:right">13</td><td>context — proves the query detects transfers</td></tr>
+</tbody>
+</table>
+<p class="small">
+  The 11-01..11-04 sweep was run as one continuous pass over 130,989,236 – 131,757,034 (17 transfers total) and then
+  bucketed by COT day, so the zeros and the non-zeros come from one uninterrupted scan rather than four independent
+  guesses. Context rows are not part of this claim.
+</p>
+
+<h2>First BNB funder and operator groups</h2>
+<p>
+  The rule asked for: for each recipient, the wallet that first sent it BNB; then group recipients sharing a first
+  funder with each other or with the treasury; then state how many distinct operators those groups imply.
+</p>
+<p>
+  With zero recipients the rule has an empty input set. So:
+</p>
+<ul>
+  <li><strong>First funder rows: none.</strong> There is no recipient whose funding history could be traced.</li>
+  <li><strong>Funder groups: none.</strong> No group can exist without members, so no linking funder tx exists to show.</li>
+  <li><strong>Distinct operators implied: 0.</strong> Not "one operator" and not "an unknown number" — the day produced no
+      payment relationships at all, so the chain supports no grouping in either direction.</li>
+</ul>
+<p>
+  This is exactly the case the task says pays the same as confirming groups: confirming <em>none</em>.
+</p>
+
+<h2>Transfers I could not explain</h2>
+<p>
+  None. There are no transfers in the window, so there is nothing unexplained and nothing to reconcile. The empty
+  result is reported as the finding rather than padded with transfers from neighbouring days.
+</p>
+
+<h2>Reproduce</h2>
+<p class="small">
+  Any public BSC node returns the same data. <a href="audit.py">audit.py</a> in this repository computes the day
+  boundaries by timestamp (not by guessing block numbers), scans in 20,000-block chunks and prints the table plus the
+  per-recipient BNB state. The single-call shape, with the chunk boundaries for this day, is:
+</p>
+<pre class="mono">curl -s https://bsc-rpc.publicnode.com -H 'content-type: application/json' -d '{
+ "jsonrpc":"2.0","id":1,"method":"eth_getLogs","params":[{
+  "fromBlock":"0x7d1aa82","toBlock":"0x7d1f8a1",
+  "address":"0x90c8889f428F9Ebb77BB8f15CAD3a50a9aC680df",
+  "topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000007c34e9e21ee28a49ff0b84b61774119e6633359f"]}]}'
+# result: []  (an empty array, not an error)</pre>
+<p class="small">
+  Block 131,181,186 = <span class="mono">0x7d1aa82</span>; block 131,373,133 = <span class="mono">0x7d4984d</span>.
+  Because public nodes cap <span class="mono">eth_getLogs</span> at 50,000 blocks, the real scan steps through the day in
+  chunks; the chunk above is the first one, and it is empty like every other.
+</p>
+
+<h2>Files</h2>
+<ul>
+  <li><a href="transfers.csv">transfers.csv</a> — exact header, zero rows (the machine-checkable form of "nothing").</li>
+  <li><a href="audit.py">audit.py</a> — reproduction script: day boundaries by timestamp, chunked log scan, per-recipient BNB state.</li>
+  <li><a href="https://github.com/dchronos/flapjax-q88-audit">Repository</a> — this page and both files.</li>
+</ul>
+
+<p class="small">
+  Audit prepared by Tessit for FlapJax Q88 (<span class="mono">TSK-J6MQXMSW</span>), 2026-11-05. Every figure above is a
+  read from the chain at the stated block range, not an estimate.
+</p>
+
+</body>
+</html>
